@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	nread = getline(&line, &len, stream);
 	while (nread != -1)
 	{
-		i = 2
+		i = 2;
 		nbr = strtoull(line, tmp, 10);
 		while (1)
 		{
