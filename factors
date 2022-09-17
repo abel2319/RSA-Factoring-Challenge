@@ -1,14 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env bash
+# Read number from file and print his factors in file
 
-   
-from sys import argv
-if len(argv) != 2:
-    exit();
-file = open(argv[1], 'r')
-for line in file:
-    nbr = int(line)
-    i = 2
-    while nbr % i != 0:
-        i += 1
-    print("{}={}*{}".format(nbr, int(nbr / i), i))
-file.close()
+FILE=$1
+
+while read NUM
+do
+    factors=($(factor $NUM))
+    echo "$NUM=$(($NUM/${factors[1]}))*${factors[1]}"
+done < $FILE
